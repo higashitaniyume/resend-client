@@ -1,82 +1,83 @@
-# Resend Client - 邮箱客户端
+# Resend Client
 
-一个基于 Wails 构建的现代化邮箱客户端，使用 Resend API 发送邮件。
+A modern desktop email client built with **Wails**, powered by the **Resend API**.
 
-## 功能特性
+## Features
 
-- 📧 **邮件发送**: 支持 HTML 和纯文本邮件
-- 📝 **发送历史**: 自动记录所有发送的邮件
-- 🔐 **安全存储**: API Key 使用 AES-256 加密存储在本地
-- 🎨 **现代化界面**: 简洁美观的深色主题界面
-- 💾 **本地数据**: 所有数据存储在本地，保护隐私
+- 📧 **Rich Email Support**: Compose and send emails with support for both HTML and Plain Text formats.
+- 📝 **Send History**: Automatically track and manage your entire email dispatch history.
+- 🔐 **Secure Storage**: Your Resend API Key is stored locally and protected by **AES-256 encryption**.
+- 🎨 **Modern Interface**: A clean, sleek, and intuitive dark-themed UI.
+- 💾 **Privacy First**: All data is stored exclusively on your local machine to ensure maximum privacy.
 
-## 开始使用
+## Getting Started
 
-### 前置要求
+### Prerequisites
 
-- Go 1.18+
-- Node.js 16+
-- pnpm
-- Wails CLI (`go install github.com/wailsapp/wails/v2/cmd/wails@latest`)
+- **Go**: 1.18 or higher
+- **Node.js**: 16 or higher
+- **pnpm**: Recommended package manager
+- **Wails CLI**: Install via `go install github.com/wailsapp/wails/v2/cmd/wails@latest`
 
-### 安装依赖
+### Installation
 
 ```bash
-# 安装前端依赖
+# Install frontend dependencies
 cd frontend
 pnpm install
 cd ..
 ```
 
-### 开发模式
+### Development
+
+Run the application in development mode with hot-reloading:
 
 ```bash
 wails dev
 ```
 
-### 构建应用
+### Build
+
+Compile the production-ready application:
 
 ```bash
 wails build
 ```
 
-## 配置 Resend
+## Resend Configuration
 
-1. 访问 [resend.com](https://resend.com) 注册账号
-2. 在控制台创建 API Key
-3. 验证你的发件域名
-4. 在应用的「设置」页面配置 API Key
+1. Sign up for an account at [resend.com](https://resend.com).
+2. Create a new **API Key** in the dashboard.
+3. Verify your **Sending Domain**.
+4. Configure your API Key in the application's **Settings** page.
 
-## 使用说明
+## Usage Guide
 
-### 发送邮件
+### Sending Emails
+1. Navigate to the **Compose** page.
+2. Ensure the "From" address uses a domain you have verified in Resend.
+3. Supports multiple recipients (separated by commas).
+4. You can provide both HTML and Plain Text content for better email compatibility.
+5. Click **Send Email** to dispatch.
 
-1. 在「撰写邮件」页面填写邮件信息
-2. 发件人地址必须是你在 Resend 验证过的域名
-3. 收件人可以填写多个，用逗号分隔
-4. 可以同时填写 HTML 和纯文本内容
-5. 点击「发送邮件」按钮
+### History Management
+- View all sent records in the **History** page.
+- Track sender/recipient details, subject lines, and timestamps.
+- Options available to clear history logs.
 
-### 查看历史
+### Data & Security
+- **Config Path**: `~/.resend-client/config.enc`
+- **Encryption**: All sensitive data is encrypted using **AES-256-GCM**.
+- **Retention**: Locally stores up to 100 recent sent records.
 
-- 在「发送历史」页面查看所有已发送的邮件
-- 显示发件人、收件人、主题、发送时间等信息
-- 可以清除所有历史记录
+## Tech Stack
 
-### 数据存储
+- **Backend**: Go + Wails
+- **Frontend**: React + TypeScript + Vite
+- **UI/Styles**: Custom CSS (Modern Dark Theme)
+- **Icons**: Lucide React
+- **Cryptography**: AES-256-GCM
 
-- 配置文件存储在: `~/.resend-client/config.enc`
-- 所有数据使用 AES-256-GCM 加密
-- 最多保存最近 100 条发送记录
+## License
 
-## 技术栈
-
-- **后端**: Go + Wails
-- **前端**: React + TypeScript + Vite
-- **UI**: 自定义 CSS (深色主题)
-- **图标**: Lucide React
-- **加密**: AES-256-GCM
-
-## 许可证
-
-MIT
+This project is licensed under the [MIT License](LICENSE).
